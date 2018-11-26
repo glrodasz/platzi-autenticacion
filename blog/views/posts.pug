@@ -1,0 +1,20 @@
+extends layout.pug
+
+block hero
+  section.hero.is-dark.is-medium.main-hero
+    .hero-body
+      .container
+        h1.title.is-size-1 Felida Music
+        h2.subtitle Share and add the best playlists from the community
+
+
+block content
+  .container.main-content
+    .columns.is-multiline
+      each post in posts
+        .column.is-full
+          .card
+            .card-content
+              h1.title= post.title
+              h2.subtitle= post.author
+              p= post.description
