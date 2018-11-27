@@ -1,0 +1,28 @@
+extends layout.pug
+
+block hero
+  section.hero.is-dark.is-medium.main-hero
+    .hero-body
+      .container
+        h1.title.is-size-1 Felida Music
+        h2.subtitle Share and add the best playlists from the community
+
+
+block content
+  .container.main-content
+    .columns.is-multiline
+      each playlist in playlists.items
+        .column.is-one-quarters
+          .card
+            .card-image
+              figure.image
+                img(src=playlist.images[0].url)
+            .card-content
+              h1.title= playlist.name
+              h2.subtitle= playlist.owner.display_name
+            .card-footer
+              .card-footer-item
+                a.button.is-primary-is-fullwidth= `${isHome ? 'Ver tracks' : 'Agregar'}`
+              .card-footer-item
+                a.button.isfullwidth(href='#')
+                  i.far.fa-thumbs-up

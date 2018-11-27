@@ -5,9 +5,11 @@ nav.navbar.is-primary
                 img.logo(src='/static/logo/felida-music-white@2x.png')
         .navbar-menu
             .navbar-end
+                if userInfo
+                    .navbar-item
+                        a.has-text-white(href='/playlists') Playlists
                 .navbar-item
-
-                    a.button.is-dark
+                    a.button.is-dark(href=`${userInfo ? '/logout' : '/login'}`)
                         span.icon
                             i.fab.fa-spotify
-                        span Login
+                        span= `${userInfo ? 'Log out' : 'Log in'}`
