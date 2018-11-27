@@ -8,7 +8,7 @@ export default class AuthService {
   constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-    this.handleAuthentication = this.bind.handleAuthentication.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
@@ -19,7 +19,7 @@ export default class AuthService {
 
     let url = "https://accounts.spotify.com/authorize";
     url += "?response_type=token";
-    url += "&client_id" + encodeURIComponent(config.spotifyClientId);
+    url += "&client_id=" + encodeURIComponent(config.spotifyClientId);
     url += "&scope=" + encodeURIComponent(scopesArray.join(" "));
     url += "&redirect_uri=" + encodeURIComponent(config.spotifyRedirectUri);
     url += "&state=" + encodeURIComponent(state);
@@ -85,7 +85,7 @@ export default class AuthService {
   }
 
   setProfile(profile) {
-    localStorage.setItem("profile", JSON.stringy(profile));
+    localStorage.setItem("profile", JSON.stringify(profile));
   }
 
   getProfile() {

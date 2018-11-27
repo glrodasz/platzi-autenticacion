@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { Menu, Icon, Dropdown } from "semantic-ui-react";
+import { Menu, Icon, Dropdown, Button } from "semantic-ui-react";
 
 import Logo from "../components/Logo";
 import Avatar from "../components/Avatar";
@@ -27,7 +27,12 @@ const dropdownMenuStyles = {
   width: "150px"
 };
 
-const Navbar = ({ loggedUser: { name, email, picture } }) => {
+const Navbar = ({
+  handleLogin,
+  handleLogout,
+  isAuthenticated,
+  loggedUser: { name, email, picture }
+}) => {
   const showEmail = name && email;
 
   return (
@@ -36,32 +41,37 @@ const Navbar = ({ loggedUser: { name, email, picture } }) => {
         <Logo />
         <Menu.Menu position="right">
           <Menu.Item style={menuItemStyles}>
-            <Dropdown
-              style={dropdownStyles}
-              trigger={<Avatar picture={picture} />}
-              pointing="top right"
-            >
-              <Dropdown.Menu style={dropdownMenuStyles}>
-                <Dropdown.Item disabled>
-                  <span>
-                    <span>{name || email}</span>
-                    {showEmail && (
-                      <p>
-                        <small>{email}</small>
-                      </p>
-                    )}
-                  </span>
-                </Dropdown.Item>
-                <Link href="/auth/sign-off">
-                  <Dropdown.Item>
+            {isAuthenticated ? (
+              <Dropdown
+                style={dropdownStyles}
+                trigger={<Avatar picture={picture} />}
+                pointing="top right"
+              >
+                <Dropdown.Menu style={dropdownMenuStyles}>
+                  <Dropdown.Item disabled>
+                    <span>
+                      <span>{name || email}</span>
+                      {showEmail && (
+                        <p>
+                          <small>{email}</small>
+                        </p>
+                      )}
+                    </span>
+                  </Dropdown.Item>
+
+                  <Dropdown.Item onClick={handleLogout}>
                     <span>
                       <Icon name="log out" />
                       <span>Salir</span>
                     </span>
                   </Dropdown.Item>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <Button onClick={handleLogin} color="olive">
+                Log in
+              </Button>
+            )}
           </Menu.Item>
         </Menu.Menu>
       </Menu>
