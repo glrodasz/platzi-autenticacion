@@ -1,7 +1,3 @@
-const scopesArray = [
-  "user-read-private",
-  "user-read-email",
-  "playlist-read-collaborative"
-];
+const scopesArray = ["openid", "profile", "read:playlists", "delete:playlists"];
 
 export default scopesArray;
