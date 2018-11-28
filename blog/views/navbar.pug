@@ -9,6 +9,8 @@ nav.navbar.is-primary
                     .navbar-item
                         a.has-text-white(href='/playlists') Playlists
                 .navbar-item
+                    .g-signin2(data-onsuccess='onSignIn')
+                .navbar-item
                     a.button.is-dark(href=`${userInfo ? '/logout' : '/login'}`)
                         span.icon
                             i.fab.fa-spotify

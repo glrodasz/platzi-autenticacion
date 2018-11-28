@@ -2,6 +2,8 @@ doctype html
 head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='google-signin-scope' content='profile email')
+    meta(name='google-signin-client_id' content='304154613309-jcl8ie1g1fj84gl2olh7n3vugd4fcn4q.apps.googleusercontent.com')
     title Felida Music | Blog
     link(rel='icon' type='image/png' sizes='32x32' href='/static/favicon.png')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css')
@@ -11,4 +13,6 @@ body
     block hero
     block content
     include footer.pug
+    script(src='/static/assets/main.js')
     script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+    script(async defer src='https://apis.google.com/js/platform.js')
