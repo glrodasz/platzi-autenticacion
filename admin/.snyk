@@ -378,3 +378,7 @@ patch:
         patched: '2020-09-04T08:21:03.617Z'
     - next > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
         patched: '2020-09-04T08:21:03.617Z'
+    - next > babel-plugin-transform-define > lodash:
+        patched: '2020-09-04T08:27:43.790Z'
+    - babel-plugin-transform-define > lodash:
+        patched: '2020-09-04T08:27:43.790Z'
