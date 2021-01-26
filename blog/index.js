@@ -155,7 +155,7 @@ app.get("/callback", function(req, res, next) {
     }
 
     res.cookie("access_token", body.access_token, { httpOnly: true });
-    res.redirect("/playlist");
+    res.redirect("/playlists");
   });
 });
 
