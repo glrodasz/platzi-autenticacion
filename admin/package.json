@@ -22,7 +22,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "semantic-ui-react": "^0.83.0",
-    "snyk": "^1.996.0"
+    "snyk": "^1.1064.0"
   },
   "snyk": true
 }
